@@ -92,6 +92,7 @@ class Role
      *
      * @return Role
      */
+
     public function setNom($nom)
     {
         $this->nom = $nom;

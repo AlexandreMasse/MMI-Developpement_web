@@ -5,9 +5,13 @@ security:
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         utilisateur:
-            entity: AppBundle\Entity\Utilisateur
-            property: login
+            entity:
+                class: AppBundle\Entity\Utilisateur
+                property: login
 
+    encoders:
+        AppBundle\Entity\Utilisateur:
+            algorithm: bcrypt
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -25,5 +29,8 @@ security:
             form_login:
                 login_path : login
                 check_path: login
+            logout:
+                path: logout
+                target: /
 
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
