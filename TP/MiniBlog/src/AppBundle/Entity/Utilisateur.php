@@ -327,7 +327,7 @@ class Utilisateur implements UserInterface, \Serializable
      */
     public function getRoles()
     {
-//        ['ROLE_ADMIN', 'ROLE_USER'];
+    //  ['ROLE_ADMIN', 'ROLE_USER'];
         $r = [];
         foreach ($this->roles as $role) {
             array_push($r, $role->getRole());
