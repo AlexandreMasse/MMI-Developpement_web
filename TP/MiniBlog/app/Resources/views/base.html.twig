@@ -7,6 +7,12 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        <nav>
+            {% if app.user %}<a href="{{ path('logout') }}">Se déconnecter</a>{% else %}<a href="{{ path('login') }}">Se connecter</a>{% endif %}
+            {% if is_granted("ROLE_ADMIN") %}<a href="">Ajouter un article</a><a href="">Gérer les articles</a>
+            {% endif %}
+        </nav>
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
