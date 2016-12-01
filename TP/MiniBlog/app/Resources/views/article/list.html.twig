@@ -1,0 +1,12 @@
+{% embed "base.html.twig" %}
+    {% block body %}
+        <h1>Affichage de tous les articles</h1>
+
+        {% for article in articles %}
+            <h2>{{ article.title }}</h2>
+            <h3>{{ article.author.login }}</h3>
+            <p>{{ article.text }}</p>
+        {% endfor %}
+
+    {% endblock %}
+{% endembed %}

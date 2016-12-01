@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Article
 {
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
     /**
      * @var int
      *
@@ -55,6 +60,15 @@ class Article
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Utilisateur", inversedBy="articles")
      */
     private $author;
+
+
+    /**
+     * @var Commentaire[]
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Commentaire", mappedBy="article")
+     */
+    private $commentaires;
+
+
 
 
     /**

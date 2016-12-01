@@ -9,7 +9,7 @@
     <body>
         <nav>
             {% if app.user %}<a href="{{ path('logout') }}">Se déconnecter</a>{% else %}<a href="{{ path('login') }}">Se connecter</a>{% endif %}
-            {% if is_granted("ROLE_ADMIN") %}<a href="">Ajouter un article</a><a href="">Gérer les articles</a>
+            {% if is_granted("ROLE_ADMIN") %} <a href="{{ path('admin_article_add') }}">Ajouter un article</a> <a href="{{ path('admin_article_index') }}">Gérer les articles</a>
             {% endif %}
         </nav>
 

@@ -63,6 +63,15 @@ class Article
 
 
     /**
+     * @var Commentaire[]
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Commentaire", mappedBy="article")
+     */
+    private $commentaires;
+
+
+
+
+    /**
      * Get id
      *
      * @return int
@@ -190,5 +199,39 @@ class Article
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Add commentaire
+     *
+     * @param \AppBundle\Entity\Commentaire $commentaire
+     *
+     * @return Article
+     */
+    public function addCommentaire(\AppBundle\Entity\Commentaire $commentaire)
+    {
+        $this->commentaires[] = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentaire
+     *
+     * @param \AppBundle\Entity\Commentaire $commentaire
+     */
+    public function removeCommentaire(\AppBundle\Entity\Commentaire $commentaire)
+    {
+        $this->commentaires->removeElement($commentaire);
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
     }
 }
