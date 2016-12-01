@@ -1,0 +1,7 @@
+<form action="" method="post">
+
+    <input {% if edit %} value="{{ article.title }}" {% endif %}type="text" placeholder="Titre" name="title"> <br>
+    <textarea  placeholder="Texte article" name="text" id="" cols="30" rows="10">{% if edit %}{{ article.text }}{% endif %}</textarea>
+
+    <button type="submit"> {% if edit %} Modifier {% else %} Ajouter {% endif %} </button>
+</form>

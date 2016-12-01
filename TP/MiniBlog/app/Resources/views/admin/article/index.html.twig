@@ -1,0 +1,35 @@
+{% embed "base.html.twig" %}
+    {% block body %}
+        <pre>{{ dump(articles) }}</pre>
+        <h1>Les articles</h1>
+
+        <a href="">ajouter un article</a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Date</th>
+                    <th>Dernière modification</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.title }}</td>
+                        <td>{{ article.author.login }}</td>
+                        <td>{{ article.createdAt | date("d/m/Y - H:i:s") }}</td>
+                        <td>{{ article.editedAt is empty ? "Aucune modification" : article.editedAt | date("d/m/Y - H:i:s")}}</td>
+                        <td>
+                            <a href="{{ path('admin_article_edit', {'id': article.id }) }}">Editer</a>
+                            <a href="/{{ path('admin_article_delete', {'id': article.id }) }}">Supprimer</a></td>
+                    </tr>
+                    
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% endblock %}
+{% endembed %}

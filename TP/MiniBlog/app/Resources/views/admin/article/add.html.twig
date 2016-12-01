@@ -1,0 +1,8 @@
+{% embed "base.html.twig"%}
+
+    {% block body %}
+        {% embed "forms/_article.html.twig" with {edit: false} %}
+        {% endembed %}
+    {% endblock %}
+
+{% endembed %}
