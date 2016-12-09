@@ -10,4 +10,14 @@ namespace AppBundle\Repository;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getLastNthArticles($n, $order = "DESC") {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+
+        return $qb->select("article")
+            ->from("AppBundle:Article", "article")
+            ->setMaxResults($n)
+            ->orderBy("article.createdAt", $order)
+            ->getQuery()
+            ->getResult();
+    }
 }

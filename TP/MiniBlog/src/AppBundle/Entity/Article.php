@@ -16,7 +16,10 @@ class Article
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+
     }
+
+
     /**
      * @var int
      *
@@ -68,6 +71,12 @@ class Article
      */
     private $commentaires;
 
+
+    /**
+     * @var
+     * @ORM\Column(name="slug", type="string")
+     */
+    private $slug;
 
 
 
@@ -234,4 +243,61 @@ class Article
     {
         return $this->commentaires;
     }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Article
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+
+
+
+    static public function slugify($text)
+    {
+        // replace non letter or digits by -
+        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+        // transliterate
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+        // remove unwanted characters
+        $text = preg_replace('~[^-\w]+~', '', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // remove duplicate -
+        $text = preg_replace('~-+~', '-', $text);
+
+        // lowercase
+        $text = strtolower($text);
+
+        if (empty($text)) {
+            return 'n-a';
+        }
+
+        return $text;
+    }
+
+
 }
+

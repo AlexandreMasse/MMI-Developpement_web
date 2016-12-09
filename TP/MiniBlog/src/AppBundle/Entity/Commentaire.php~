@@ -107,5 +107,52 @@ class Commentaire
     {
         return $this->createdAt;
     }
-}
 
+    /**
+     * Set author
+     *
+     * @param \AppBundle\Entity\Utilisateur $author
+     *
+     * @return Commentaire
+     */
+    public function setAuthor(\AppBundle\Entity\Utilisateur $author = null)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \AppBundle\Entity\Utilisateur
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set article
+     *
+     * @param \AppBundle\Entity\Article $article
+     *
+     * @return Commentaire
+     */
+    public function setArticle(\AppBundle\Entity\Article $article = null)
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+    /**
+     * Get article
+     *
+     * @return \AppBundle\Entity\Article
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+}

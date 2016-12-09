@@ -1,0 +1,11 @@
+{% embed 'base.html.twig' with {title : article.title} %}
+
+    {% block body %}
+        <h2><a href="{{ path('article_list') }}"> Revenir </a></h2>
+        
+        {{ article.title }}
+        {{ article.text }}
+        {{ article.author.login }}
+        {{ article.createdAt | date("d/m/Y")}}
+    {% endblock %}
+{% endembed %}

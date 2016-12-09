@@ -44,7 +44,8 @@ class ArticleController extends Controller
             $article = new Article();
             $article->setTitle($request->get("title"))
             ->setText($request->get("text"))
-            ->setAuthor($this->getUser());
+            ->setAuthor($this->getUser())
+            ->setSlug(Article::slugify($article->getTitle()));
 
             $em = $this->getDoctrine()->getManager();
 
@@ -71,7 +72,8 @@ class ArticleController extends Controller
             $article->setTitle($request->get("title"))
                 ->setText($request->get("text"))
                 ->setAuthor($this->getUser())
-                ->setEditedAt(new \DateTime());
+                ->setEditedAt(new \DateTime())
+                ->setSlug(Article::slugify($article->getTitle()));
 
 
             $em = $this->getDoctrine()->getManager();
