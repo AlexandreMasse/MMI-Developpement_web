@@ -7,5 +7,25 @@
         {{ article.text }}
         {{ article.author.login }}
         {{ article.createdAt | date("d/m/Y")}}
+
+        <hr>
+        {# Si l'utilisateur est connecté #}
+        {% if app.user %}
+
+            <form action="{{ path('comment_new', {'slug': article.slug}) }}" method="post">
+                <textarea name="commentaire" id="" cols="30" rows="10" placeholder="Laissez votre commentaire"></textarea>
+                <button type="submit">Publier commentaire</button>
+            </form>
+
+        {% endif %}
+
+
+        {% for comment in article.commentaires | reverse %}
+                {{ comment.author.login }}
+                {{ comment.createdAt | date("d/m/Y - H:i:s")}}
+                {{ comment.message }}
+            <br>
+
+        {% endfor %}
     {% endblock %}
 {% endembed %}

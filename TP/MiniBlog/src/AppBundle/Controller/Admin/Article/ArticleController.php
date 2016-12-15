@@ -95,7 +95,7 @@ class ArticleController extends Controller
 
     public function removeAction (Request $request, $id){
         //Trouver l'article selon id
-        $article = $this->getDoctrine()->getRepository("AppBuddle:Article")->find($id);
+        $article = $this->getDoctrine()->getRepository("AppBundle:Article")->find($id);
         //supprimer article
         $this->getDoctrine()->getManager()->remove($article);
 

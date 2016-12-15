@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\AppBundle;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -67,7 +68,7 @@ class Article
 
     /**
      * @var Commentaire[]
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Commentaire", mappedBy="article")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Commentaire", mappedBy="article", cascade={"all"})
      */
     private $commentaires;
 
@@ -237,7 +238,7 @@ class Article
     /**
      * Get commentaires
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Commentaire[]
      */
     public function getCommentaires()
     {

@@ -18,13 +18,13 @@
             <tbody>
                 {% for article in articles %}
                     <tr>
-                        <td>{{ article.title }}</td>
+                        <td><a href="{{ path('article_show', {'slug': article.slug}) }}">{{ article.title }}</a></td>
                         <td>{{ article.author.login }}</td>
                         <td>{{ article.createdAt | date("d/m/Y - H:i:s") }}</td>
                         <td>{{ article.editedAt is empty ? "Aucune modification" : article.editedAt | date("d/m/Y - H:i:s")}}</td>
                         <td>
                             <a href="{{ path('admin_article_edit', {'id': article.id }) }}">Editer</a>
-                            <a href="/{{ path('admin_article_delete', {'id': article.id }) }}">Supprimer</a></td>
+                            <a href="{{ path('admin_article_delete', {'id': article.id }) }}">Supprimer</a></td>
                     </tr>
                     
                 {% endfor %}
