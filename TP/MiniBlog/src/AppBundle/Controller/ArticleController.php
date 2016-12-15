@@ -17,7 +17,7 @@ class ArticleController extends Controller
      */
     public function listAction()
     {
-       $articles = $this->getDoctrine()->getRepository("AppBundle:Article")->getLastNthArticles(1, "asc");
+       $articles = $this->getDoctrine()->getRepository("AppBundle:Article")->findAll();
 
         return $this->render("article/list.html.twig", [
             'articles' => $articles
