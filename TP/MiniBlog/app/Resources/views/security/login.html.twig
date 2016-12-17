@@ -3,6 +3,21 @@
         <h1>Se connecter</h1>
 
         {% if error %} {{ error.message }} {% endif %}
+
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="login">Votre login :</label>
+                <input type="text" name="_username" class="form-control" id="login" placeholder="Login" value="{{last_username}}">
+            </div>
+            <div class="form-group">
+                <label for="mdp">Votre mot de passe :</label>
+                <input type="password" name="_password" class="form-control" id="mdp" placeholder="Mot de passe">
+            </div>
+
+            <button type="submit" class="btn btn-default">Se connecter</button>
+        </form>
+
+        {#
         <form action="" method="post">
 
             <label for="login">Login: </label> <input type="text" name="_username" id="login" value="{{last_username}}">
@@ -11,6 +26,6 @@
 
             <input type="submit" value="Envoyer">
 
-        </form>
+        </form>#}
     {% endblock %}
 {% endembed %}

@@ -3,9 +3,19 @@
         <h1>Affichage de tous les articles</h1>
 
         {% for article in articles %}
+            <div class="article">
+
+                <h2><a href="{{ path('article_show', {'slug': article.slug}) }}">{{ article.title }}</a></h2>
+
+                <h5>Article publié par {{ article.author.login }} le {{ article.createdAt | date("d/m/Y") }} à {{ article.createdAt | date("H:i:s") }}</h5>
+                <hr>
+                {{ article.text }}
+            </div>
+
+            {#
             <h2><a href="{{ path('article_show', {'slug': article.slug}) }}">{{ article.title }}</a></h2>
             <h3>{{ article.author.login }}</h3>
-            <p>{{ article.text }}</p>
+            <p>{{ article.text }}</p>#}
         {% endfor %}
 
     {% endblock %}

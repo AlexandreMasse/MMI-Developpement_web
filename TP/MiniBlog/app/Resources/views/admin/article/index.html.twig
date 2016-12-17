@@ -1,9 +1,12 @@
+{# page de gestion des article par l'admin #}
+
+
 {% embed "base.html.twig" %}
     {% block body %}
         {#<pre>{{ dump(articles) }}</pre>#}
         <h1>Les articles</h1>
 
-        <a href="">ajouter un article</a>
+        <a href="{{ path('admin_article_add') }}">ajouter un article</a>
 
         <table>
             <thead>

@@ -1,0 +1,31 @@
+body { padding-top: 70px; }
+
+.container {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+/****** page d'acceuil *********/
+
+.jbbutton {
+    margin-left: 30px;
+
+
+}
+
+/**** bloc article *****/
+
+.article {
+    background-color: #4e5d6c;
+    margin-top: 40px;
+    padding: 30px;
+
+}
+
+.article h2 {
+    margin-top: 0px;
+}
+
+.article hr {
+    border-top: 3px solid #596a7b;
+}
