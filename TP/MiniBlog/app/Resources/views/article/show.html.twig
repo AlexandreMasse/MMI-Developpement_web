@@ -12,9 +12,14 @@
         {# Si l'utilisateur est connecté #}
         {% if app.user %}
 
+
             <form action="{{ path('comment_new', {'slug': article.slug}) }}" method="post">
-                <textarea name="commentaire" id="" cols="30" rows="10" placeholder="Laissez votre commentaire"></textarea>
-                <button type="submit">Publier commentaire</button>
+                <div class="form-group">
+                    <label for="com">Commentaire</label>
+                    <textarea class="form-control" name="commentaire" id="com"{# cols="30" rows="10"#} placeholder="Laissez votre commentaire"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-default">Publier commentaire</button>
             </form>
 
         {% endif %}
