@@ -1,4 +1,21 @@
-body { padding-top: 70px; }
+body {
+    position: relative;
+    padding-top: 70px;
+    padding-bottom: 100px;
+    min-height: 100vh;
+}
+
+
+footer {
+    width:100%;
+    height:50px;
+    margin-top: 40px;
+    background-color: #4e5d6c;
+
+    position: absolute;
+    bottom: 0;
+}
+
 
 .container {
     width: 80vw;
@@ -28,4 +45,24 @@ body { padding-top: 70px; }
 
 .article hr {
     border-top: 3px solid #596a7b;
+}
+
+
+
+
+/*********Vue d'un article ********************/
+
+
+[for="com"] {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+
+
+/**********Backoffice *************/
+
+
+.btn-addarticle {
+    margin: 10px 0;
 }

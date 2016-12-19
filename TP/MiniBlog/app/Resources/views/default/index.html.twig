@@ -6,10 +6,17 @@
 
     <div class="jumbotron">
         <h1>Bienvenue sur notre super blog !</h1>
-        <p>Sur ce blog on peut regarder des articles et si on se connecte on peut faire plein de choses super comme ajouter des articles ou bien les commenter afin de faire partie intégrante de la communauté </p>
+        <p>Sur ce blog vous pouvez regarder les articles publiés par les administrateurs et si vous vous connectez avec votre compte vous pouvez les commenter afin de participer à la vie du blog et ainsi faire partie intégrante de notre communauté !</p>
         <p>
-            <a class="btn btn-primary btn-lg" href="{{ path('login') }}" role="button">Se connecter</a>
-            <a class="btn btn-primary btn-lg jbbutton" href="{{ path('article_list') }}" role="button">Voir tous les articles</a>
+            {% if app.user %}
+                <a class="btn btn-primary btn-lg" href="{{ path('logout') }}" role="button">Se déconnecter</a>
+                {% else %}
+                <a class="btn btn-primary btn-lg" href="{{ path('login') }}" role="button">Se connecter</a>
+            {% endif %}
+                    <a class="btn btn-primary btn-lg jbbutton" href="{{ path('article_list') }}" role="button">Voir tous les articles</a>
+
+            {#<a class="btn btn-primary btn-lg" href="{{ path('login') }}" role="button">Se connecter</a>
+            <a class="btn btn-primary btn-lg jbbutton" href="{{ path('article_list') }}" role="button">Voir tous les articles</a>#}
         </p>
     </div>
 
