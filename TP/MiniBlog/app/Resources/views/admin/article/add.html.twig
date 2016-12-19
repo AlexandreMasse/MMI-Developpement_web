@@ -1,6 +1,8 @@
 {% embed "base.html.twig"%}
 
     {% block body %}
+        <h1>Ajout d'un nouvel article</h1>
+        <hr>
         {% embed "forms/_article.html.twig" with {edit: false} %}
         {% endembed %}
     {% endblock %}

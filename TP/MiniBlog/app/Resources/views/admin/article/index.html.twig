@@ -4,30 +4,32 @@
 {% embed "base.html.twig" %}
     {% block body %}
         {#<pre>{{ dump(articles) }}</pre>#}
-        <h1>Les articles</h1>
-
+        <h1>Espace de gestion des articles</h1>
+        <hr>
         <a href="{{ path('admin_article_add') }}" class="btn btn-primary btn-addarticle">Ajouter un article</a>
 
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Titre</th>
+                    <th>Titre de l'article</th>
                     <th>Auteur</th>
-                    <th>Date</th>
+                    <th>Date de publication</th>
                     <th>Dernière modification</th>
+                    <th colspan="3">Action</th>
                 </tr>
             </thead>
 
             <tbody>
                 {% for article in articles %}
                     <tr>
-                        <td><a href="{{ path('article_show', {'slug': article.slug}) }}">{{ article.title }}</a></td>
+                        <td>{{ article.title }}</td>
                         <td>{{ article.author.login }}</td>
                         <td>{{ article.createdAt | date("d/m/Y - H:i:s") }}</td>
                         <td>{{ article.editedAt is empty ? "Aucune modification" : article.editedAt | date("d/m/Y - H:i:s")}}</td>
-                        <td>
-                            <a href="{{ path('admin_article_edit', {'id': article.id }) }}">Editer</a>
-                            <a href="{{ path('admin_article_delete', {'id': article.id }) }}">Supprimer</a></td>
+                        <td><a href="{{ path('article_show', {'slug': article.slug}) }}" class="btn btn-info">Voir</a></td>
+                        <td><a href="{{ path('admin_article_edit', {'id': article.id }) }}" class="btn btn-warning">Editer</a></td>
+                        <td><a href="{{ path('admin_article_delete', {'id': article.id }) }}" class="btn btn-danger">Supprimer</a></td>
+
                     </tr>
                     
                 {% endfor %}

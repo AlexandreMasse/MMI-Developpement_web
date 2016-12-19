@@ -1,7 +1,15 @@
 <form action="" method="post">
+    <div class="form-group">
+        <label for="title">Titre de l'article</label>
+        <input {% if edit %} value="{{ article.title }}" {% endif %}type="text" placeholder="Titre" name="title" id="title" class="form-control">
+    </div>
 
-    <input {% if edit %} value="{{ article.title }}" {% endif %}type="text" placeholder="Titre" name="title"> <br>
-    <textarea  placeholder="Texte article" name="text" id="" cols="30" rows="10">{% if edit %}{{ article.text }}{% endif %}</textarea>
+    <div class="form-group">
+        <label for="text">Texte de l'article</label>
+        <textarea  placeholder="Texte article" name="text" id="text" cols="30" rows="10" class="form-control">{% if edit %}{{ article.text }}{% endif %}</textarea>
+    </div>
 
-    <button type="submit"> {% if edit %} Modifier {% else %} Ajouter {% endif %} </button>
+    <button class="btn btn-default" type="submit"> {% if edit %} Modifier l'article {% else %} Publier l'article {% endif %} </button>
 </form>
+
+
