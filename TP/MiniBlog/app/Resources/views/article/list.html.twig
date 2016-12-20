@@ -1,11 +1,12 @@
 {% embed "base.html.twig" %}
     {% block body %}
         <h1>Affichage de tous les articles</h1>
+        
+        <hr>
 
         {% for article in articles %}
             <div class="article">
-
-                <h2><a href="{{ path('article_show', {'slug': article.slug}) }}">{{ article.title }}</a></h2>
+                <h2><a class="article-title" href="{{ path('article_show', {'slug': article.slug}) }}">{{ article.title }}</a></h2>
 
                 <h5>Article publié par {{ article.author.login }} le {{ article.createdAt | date("d/m/Y") }} à {{ article.createdAt | date("H:i:s") }}</h5>
                 <hr>

@@ -47,6 +47,7 @@ class ArticleController extends Controller
             ->setAuthor($this->getUser())
             ->setSlug(Article::slugify($article->getTitle()));
 
+
             $em = $this->getDoctrine()->getManager();
 
             //faire persister la variable en bdd

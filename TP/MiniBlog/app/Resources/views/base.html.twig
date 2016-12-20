@@ -4,9 +4,16 @@
         <meta charset="UTF-8" />
         <title>{% block title %}MiniBlog - {{ title | default('Accueil') }}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+
+        {#Bootsrap#}
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+        {#Icone font#}
+        <link rel="stylesheet" href="{{ asset('font/flaticon.css') }}">
+        {#Style perso#}
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        {#Favicon#}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
     </head>
     <body>
 
@@ -41,7 +48,7 @@
         </div>
 
         <footer>
-
+            <a class="flaticon-github-logo" href="https://github.com/AlexandreMasse/MMI-Developpement_web/tree/master/TP/MiniBlog" title="Voir le code sur Github"></a>
         </footer>
     </body>
 </html>

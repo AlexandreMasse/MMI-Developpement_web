@@ -14,6 +14,27 @@ footer {
 
     position: absolute;
     bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a:hover {
+    text-decoration: none;
+    transition: all 1s ease;
+    color: #df691a;
+}
+
+footer a {
+    transition: all 1s ease;
+    color: #ebebeb;
+}
+
+
+
+h5 {
+    color: #86909a;
 }
 
 
@@ -34,13 +55,17 @@ footer {
 
 .article {
     background-color: #4e5d6c;
-    margin-top: 40px;
+    margin-top: 50px;
     padding: 30px;
 
 }
 
 .article h2 {
     margin-top: 0px;
+}
+
+.article h2 a {
+    text-decoration: none;
 }
 
 .article hr {
@@ -56,6 +81,23 @@ footer {
 [for="com"] {
     font-size: 20px;
     margin-bottom: 10px;
+}
+
+.article-title {
+    /*color: #b15315;*/
+    color: #df691a;
+}
+
+
+.form-help {
+    margin-top: 40px;
+    background-color: #4e5d6c;
+    padding: 25px;
+}
+
+.form-help h3:first-child {
+    margin-top: 0px;
+
 }
 
 

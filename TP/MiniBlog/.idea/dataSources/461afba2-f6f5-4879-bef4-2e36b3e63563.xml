@@ -29,7 +29,7 @@
     </column>
     <column id="19" parent="12" name="text">
       <mandatory>1</mandatory>
-      <data-type>varchar(255)|0</data-type>
+      <data-type>text|0</data-type>
     </column>
     <column id="20" parent="12" name="title">
       <mandatory>1</mandatory>
