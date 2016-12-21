@@ -1,11 +1,48 @@
+/*****Général*******/
+
+
 body {
     position: relative;
-    padding-top: 70px;
+    padding-top: 80px;
     padding-bottom: 100px;
     min-height: 100vh;
 }
 
 
+h5 {
+    color: #86909a;
+}
+
+
+.container {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+
+/*******Navbar*******/
+
+nav {
+    font-size: 14px;
+}
+
+.navbar div div ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height:50px;
+}
+
+
+.navbar div div ul li a {
+    height:100%;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+
+/*******Footer********/
 footer {
     width:100%;
     height:50px;
@@ -20,36 +57,60 @@ footer {
     align-items: center;
 }
 
+footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 footer a:hover {
     text-decoration: none;
-    transition: all 1s ease;
+    transition: all 0.7s ease-out;
     color: #df691a;
 }
 
 footer a {
-    transition: all 1s ease;
+    transition: all 0.7s ease-out;
     color: #ebebeb;
+    margin: 0 30px;
 }
 
 
-
-h5 {
-    color: #86909a;
+footer div a:first-child {
+    flex-grow: 2;
+    flex-shrink: 2;
 }
 
 
-.container {
-    width: 80vw;
-    margin: 0 auto;
+.devicon-symfony-original {
+    font-size: 32px;
 }
+
+footer span {
+    color: #4e5d6c;
+    transition: all 1s ease;
+}
+
 
 /****** page d'acceuil *********/
 
 .jbbutton {
     margin-left: 30px;
 
-
 }
+
+.jumbotron > h1 {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.jumbotron p:nth-of-type(1) {
+    margin-bottom: 30px;
+}
+
+.jumbotron  p:nth-of-type(2) {
+    margin-bottom: 0;
+}
+
 
 /**** bloc article *****/
 
@@ -57,7 +118,6 @@ h5 {
     background-color: #4e5d6c;
     margin-top: 50px;
     padding: 30px;
-
 }
 
 .article h2 {
@@ -75,19 +135,45 @@ h5 {
 
 
 
-/*********Vue d'un article ********************/
+/*********Vue d'un article **************/
 
-
-[for="com"] {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
 
 .article-title {
-    /*color: #b15315;*/
     color: #df691a;
 }
 
+.h3-comment {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.separateur {
+    margin-top: 30px;
+    margin-bottom: 30px ;
+}
+
+.comment {
+    margin-top: 25px;
+    background-color: #485563;
+
+    padding: 18px;
+}
+
+.comment p:first-child {
+    color: #86909a;
+}
+
+.comment p:nth-of-type(2) {
+    margin: 0;
+}
+
+.comment hr {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+
+/****** Page de connexion *******/
 
 .form-help {
     margin-top: 40px;
@@ -95,14 +181,15 @@ h5 {
     padding: 25px;
 }
 
+
+
 .form-help h3:first-child {
     margin-top: 0px;
-
 }
 
 
 
-/**********Backoffice *************/
+/**********Backoffice*************/
 
 
 .btn-addarticle {

@@ -6,17 +6,17 @@
         <h1 class="article-title">{{ article.title }}</h1>
         <h5>Publié par {{ article.author.login }} le {{ article.createdAt | date("d/m/Y") }} à {{ article.createdAt | date("H:i:s") }}</h5>
 
-        <hr>
+        <hr class="separateur">
 
-        {{ article.text }}
+        {{ article.text | raw}}
 
-        <hr>
+        <hr class="separateur">
 
-        <label for="com"> Laissez nous un commentaire !</label>
+        <h3 class="h3-comment">Laissez nous un commentaire !</h3>
 
         {# Si l'utilisateur est connecté #}
         {% if app.user %}
-            <form action="{{ path('comment_new', {'slug': article.slug}) }}" method="post">
+            <form class="form-comment" action="{{ path('comment_new', {'slug': article.slug}) }}" method="post">
                 <div class="form-group">
                     <textarea class="form-control" name="commentaire" id="com"{# cols="30" rows="10"#} placeholder="Votre commentaire"></textarea>
                 </div>
@@ -29,13 +29,20 @@
 
         {% endif %}
 
+        <hr class="separateur">
 
-        {% for comment in article.commentaires | reverse %}
-                {{ comment.author.login }}
-                {{ comment.createdAt | date("d/m/Y - H:i:s")}}
-                {{ comment.message }}
-            <br>
+        <h3>Commentaires</h3>
 
-        {% endfor %}
+        {% if article.commentaires is empty %}
+            <p>Aucun comentaire n'a été posté pour le moment</p>
+            {% else %}
+                {% for comment in article.commentaires | reverse %}
+                    <div class="comment">
+                        <p>Commentaire de {{ comment.author.login }} le {{ article.createdAt | date("d/m/Y") }} à {{ article.createdAt | date("H:i:s") }} </p>
+                        <hr>
+                        <p> {{ comment.message }} </p>
+                    </div>
+                {% endfor %}
+        {% endif %}
     {% endblock %}
 {% endembed %}

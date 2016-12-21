@@ -30,10 +30,11 @@
 
             <h5>Article publié par {{ article.author.login }} le {{ article.createdAt | date("d/m/Y") }} à {{ article.createdAt | date("H:i:s") }}</h5>
             <hr>
-            {{ article.text }}
+            {{ article.text | raw}}
         </div>
     {% endfor %}
 {% endblock %}
+
 
 {% endembed %}
 

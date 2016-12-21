@@ -7,10 +7,14 @@
 
         {#Bootsrap#}
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-        {#Icone font#}
+
+        {#Font icone#}
         <link rel="stylesheet" href="{{ asset('font/flaticon.css') }}">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+
         {#Style perso#}
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
         {#Favicon#}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
@@ -43,12 +47,60 @@
         <div class="container">
 
             {% block body %}{% endblock %}
-            {% block javascripts %}{% endblock %}
+
 
         </div>
 
+
         <footer>
+            <div>
+            <span>Voir le code sur Github</span>
             <a class="flaticon-github-logo" href="https://github.com/AlexandreMasse/MMI-Developpement_web/tree/master/TP/MiniBlog" title="Voir le code sur Github"></a>
+            <a href="#" class="devicon-symfony-original"></a>
+            <span>Powered by Symfony</span>
+
+            </div>
         </footer>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+        <script>
+            'use strict';
+            $(document).ready(function () {
+
+                /*Anamation logo Github*/
+
+                function entreeG () {
+                    $('footer span:nth-of-type(1)').css('color', 'white')
+                }
+                function sortieG () {
+                    $('footer span:nth-of-type(1)').css('color', '#4e5d6c')
+                }
+
+                $('.flaticon-github-logo').hover(entreeG, sortieG);
+
+
+
+                /*Animation logo Symfony*/
+
+                function entreeS () {
+                    $('footer span:nth-of-type(2)').css('color', 'white')
+                }
+
+                function sortieS () {
+                    $('footer span:nth-of-type(2)').css('color', '#4e5d6c')
+                }
+
+                $('.devicon-symfony-original').hover(entreeS, sortieS);
+
+
+            });
+
+        </script>
+
+        {% block javascripts %}{% endblock %}
+
     </body>
 </html>
