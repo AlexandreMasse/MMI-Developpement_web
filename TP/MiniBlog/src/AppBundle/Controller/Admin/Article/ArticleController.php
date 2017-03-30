@@ -102,6 +102,8 @@ class ArticleController extends Controller
 
         $this->getDoctrine()->getManager()->flush();
 
+        return $this->redirectToRoute("admin_article_index");
+
 
     }
 

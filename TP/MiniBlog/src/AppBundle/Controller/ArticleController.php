@@ -42,29 +42,37 @@ class ArticleController extends Controller
      * @Route("/{slug}/comment/new", name="comment_new")
      * @Method({"POST"})
      */
-
-    public function newCommentAction (Request $request, Article $article) {
+    public function newCommentAction (Request $request, Article $article) 
+    {
+        
+        //Erreur si l'article n'existe pas
         if(!$article) throw $this->createNotFoundException();
 
+        //Création de l'entité Commentaire
         $comment = new Commentaire();
 
-        $comment->setArticle($article)
-            ->setAuthor($this->getUser())
-            ->setMessage($request->get('commentaire'));
+        //Commentaire appartient à l'article en cours
+        $comment->setArticle($article);
 
+        //l'utilisateur connecté est l'auteur
+        $comment->setAuthor($this->getUser());
 
+        //Attribution du message récupéré via formulaire
+        $comment->setMessage($request->get('commentaire'));
+
+        //Récupération de l'entityManager
         $em = $this->getDoctrine()->getManager();
 
-        //A partir de maintenant géré par doctrine
+        //On persiste  l'entité
         $em->persist($comment);
 
-        //Valider les modifications
+        //On valide les modifications avec flush
         $em->flush();
 
+        //Redirection vers la vue de l'article en cours
         return $this->redirectToRoute('article_show', [
             "slug" => $article->getSlug()
         ]);
-
 
     }
 

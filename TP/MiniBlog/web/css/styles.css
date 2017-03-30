@@ -62,10 +62,18 @@ footer div {
     justify-content: center;
     align-items: center;
 }
-footer a:hover {
+
+
+footer a:link, footer a:visited  {
     text-decoration: none;
+    color: #ebebeb;
+
+}
+
+footer a:hover {
     transition: all 0.7s ease-out;
     color: #df691a;
+    text-decoration: none;
 }
 
 footer a {
